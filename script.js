@@ -1,5 +1,3 @@
-//Create a function 'getComputerChoice' to return the computer's RPS choice
-
 function getComputerChoice() {
 let randNum = Math.random() * 3;
 if (randNum < 1){
@@ -11,30 +9,20 @@ if (randNum < 1){
 }
 };
 
-//Create a function 'getHumanChoice' to receive the player's input for RPS
 
 function getHumanChoice() {
     return prompt("Rock, paper or scissors?");
 };
 
-//Create a function 'capitalise' to capitalise first letter of input
 
 function capitalise(str) {
     return str.at(0).toUpperCase() + str.slice(1).toLowerCase();
 };
 
-//Create a function 'playGame' start a game of 5 rounds.
+let humanScore = 0;
+let computerScore = 0;
 
-function playGame() {
-
-    let humanScore = 0;
-    let computerScore = 0;
-
-    let humanPlay;
-    let computerPlay;
-
-
-    function playRound(humanChoice, computerChoice) {
+function playRound(humanChoice, computerChoice) {
     humanChoice = capitalise(humanChoice);
 
     if (
@@ -61,7 +49,15 @@ function playGame() {
         return ("It was a draw! You both picked " + humanChoice + ".");
     };
 
-};
+    };
+
+function playGame() {
+
+    humanScore = 0;
+    computerScore = 0;
+
+    let humanPlay;
+    let computerPlay;
 
 
     for (let i = 0; i<5; i++) {
@@ -81,3 +77,21 @@ function playGame() {
 };
 
 // playGame();
+
+const rockbtn = document.querySelector("#rock-btn");
+rockbtn.addEventListener("click", () => {
+    computerPlay = getComputerChoice();
+    console.log(playRound(rockbtn.textContent, computerPlay));
+});
+
+const paperbtn = document.querySelector("#paper-btn");
+paperbtn.addEventListener("click", () => {
+    computerPlay = getComputerChoice();
+    console.log(playRound(paperbtn.textContent, computerPlay));
+});
+
+const scissorsbtn = document.querySelector("#scissors-btn");
+scissorsbtn.addEventListener("click", () => {
+    computerPlay = getComputerChoice();
+    console.log(playRound(scissorsbtn.textContent, computerPlay));
+});
