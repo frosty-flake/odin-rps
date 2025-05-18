@@ -81,12 +81,23 @@ function playGame() {
 const roundResult = document.querySelector("#round-result");
 const playerScore = document.querySelector("#player-score");
 const compScore = document.querySelector("#computer-score");
+const gameResult = document.querySelector("#game-result");
 
 const buttons = document.querySelector("#buttons");
 buttons.addEventListener("click", (e) => {
+    gameResult.textContent = "Game Results";
     let target = e.target;
     let computerPlay = getComputerChoice();
     roundResult.textContent = playRound(target.textContent, computerPlay);
     playerScore.textContent = `Player's score: ${humanScore}`;
     compScore.textContent = `Computer's score: ${computerScore}`;
+    if (humanScore === 5) {
+        gameResult.textContent = "You got 5 points. You win!";
+        humanScore = 0;
+        computerScore = 0;
+    } else if (computerScore === 5) {
+        gameResult.textContent = "The computer got 5 points. You lose...";
+        humanScore = 0;
+        computerScore = 0;
+    }
 });
