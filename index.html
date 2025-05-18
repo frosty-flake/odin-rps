@@ -3,107 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
     <title>Rock Paper Scissors</title>
 </head>
 
 <body>
-<script>
 
-//Create a function 'getComputerChoice' to return the computer's RPS choice
+<button id="rock-btn">Rock</button>
+<button id="paper-btn">Paper</button>
+<button id="scissors-btn">Scissors</button>
 
-function getComputerChoice() {
-let randNum = Math.random() * 3;
-if (randNum < 1){
-    return "Rock"
-} else if (randNum <2){
-    return "Paper"
-} else {
-    return "Scissors"
-}
-};
-
-//Create a function 'getHumanChoice' to receive the player's input for RPS
-
-function getHumanChoice() {
-    return prompt("Rock, paper or scissors?");
-};
-
-//Create a function 'capitalise' to capitalise first letter of input
-
-function capitalise(str) {
-    return str.at(0).toUpperCase() + str.slice(1).toLowerCase();
-};
-
-//Create a function 'playGame' start a game of 5 rounds.
-//Create variables to store human and computer score.
-//Create variables to store human and computer choices.
-//Create variables to store result of a round.
-//Create a loop to play 5 rounds.
-    //Ask player for their choice.
-    //Generate computer choice.
-    //Call playRound to get result of the game.
-//Compare player and computer scores.
-    //If player > computer, return player wins.
-    //If player < computer, return player loses.
-    //If player == computer, return draw.
-
-function playGame() {
-
-    let humanScore = 0;
-    let computerScore = 0;
-
-    let humanPlay;
-    let computerPlay;
-
-
-    function playRound(humanChoice, computerChoice) {
-    humanChoice = capitalise(humanChoice);
-
-    if (
-        (humanChoice === "Rock" && computerChoice === "Scissors") ||
-        (humanChoice === "Scissors" && computerChoice === "Paper") ||
-        (humanChoice === "Paper" && computerChoice === "Rock")) {
-            result = "win";
-    } else if (
-        (computerChoice === "Rock" && humanChoice === "Scissors") ||
-        (computerChoice === "Scissors" && humanChoice === "Paper") ||
-        (computerChoice === "Paper" && humanChoice === "Rock")) {
-            result = "lose";
-        } else {
-            result = "draw";
-        };
-
-    if (result === "win") {
-        humanScore += 1;
-        return ("You win! " + humanChoice + " beats " + computerChoice + ".");
-    } else if (result === "lose") {
-        computerScore += 1;
-        return ("You lose! " + computerChoice + " beats " + humanChoice + ".");
-    } else if (result === "draw") {
-        return ("It was a draw! You both picked " + humanChoice + ".");
-    };
-
-};
-
-
-    for (let i = 0; i<5; i++) {
-        humanPlay = getHumanChoice();
-        computerPlay = getComputerChoice();
-        console.log(playRound(humanPlay, computerPlay));
-        console.log("Human: " + humanScore +", Computer: " + computerScore)
-    };
-
-    if (humanScore > computerScore) {
-        console.log("You win!");
-    } else if (humanScore < computerScore) {
-        console.log("You lose...");
-    } else {
-        console.log("It was a draw.")
-    };
-};
-
-playGame()
-</script>
 </body>
 
 </html>
