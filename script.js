@@ -78,20 +78,30 @@ function playGame() {
 
 // playGame();
 
+const roundResult = document.querySelector("#round-result");
+const playerScore = document.querySelector("#player-score");
+const compScore = document.querySelector("#computer-score");
+
 const rockbtn = document.querySelector("#rock-btn");
 rockbtn.addEventListener("click", () => {
     computerPlay = getComputerChoice();
-    console.log(playRound(rockbtn.textContent, computerPlay));
+    roundResult.textContent = playRound(rockbtn.textContent, computerPlay);
+    playerScore.textContent = `Player's score: ${humanScore}`;
+    compScore.textContent = `Computer's score: ${computerScore}`;
 });
 
 const paperbtn = document.querySelector("#paper-btn");
 paperbtn.addEventListener("click", () => {
     computerPlay = getComputerChoice();
-    console.log(playRound(paperbtn.textContent, computerPlay));
+    roundResult.textContent = playRound(paperbtn.textContent, computerPlay);
+    playerScore.textContent = `Player's score: ${humanScore}`;
+    compScore.textContent = `Computer's score: ${computerScore}`;
 });
 
 const scissorsbtn = document.querySelector("#scissors-btn");
 scissorsbtn.addEventListener("click", () => {
     computerPlay = getComputerChoice();
-    console.log(playRound(scissorsbtn.textContent, computerPlay));
+    roundResult.textContent = playRound(scissorsbtn.textContent, computerPlay);
+    playerScore.textContent = `Player's score: ${humanScore}`;
+    compScore.textContent = `Computer's score: ${computerScore}`;
 });
